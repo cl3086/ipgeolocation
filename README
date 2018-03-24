@@ -1,0 +1,30 @@
+I used Python to create the script and the libraries I used are: argparse, json, requests, simplekml, socket, sqlite3, time, and whois. My Python version is 3.5.1 and the libraries that are already built in are: argparse, json, socket, sqlite3, and time. So for the other libraries, you would have to pip3 install <package-name>:
+
+pip3 install requests
+pip3 install python-whois
+pip3 install simplekml
+
+I found a quick documentation that suggested me and showed some API calls for python-whois: www.pythonforbeginners.com/dns/using-pywhois
+This stackoverflow post showed me how to get the IP address of a host:  https://stackoverflow.com/questions/2805231/how-can-i-do-dns-lookups-in-python-including-referring-to-etc-hosts
+
+I read this page: https://www.owasp.org/index.php/Fingerprint_Web_Server_(OTG-INFO-002) that describes what server fingerprints are. So from there, I saw that you can get headers from the request module and check if it has a server header.
+
+I referenced the first block of code in the simplekml documentation: https://simplekml.readthedocs.io/en/latest/gettingstarted.html.
+
+
+You have to specify a -f or --file and for the file of urls.
+Note, the filename should be urls.txt.
+
+Adding a -t or --text will create a text report.
+Adding a -d or --db will create a sqlite file.
+Adding a -k or --kml will create a kml file.
+Adding the --text, --db, and --kml tags will create all three files.
+
+Examples:
+
+python urlanalysis.py -h
+
+python urlanalysis.py -f urls.txt --text
+python urlanalysis.py -f urls.txt --db
+python urlanalysis.py -f urls.txt --kml
+python urlanalysis.py -f urls.txt --text --db --kml
